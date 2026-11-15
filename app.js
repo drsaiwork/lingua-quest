@@ -25,6 +25,20 @@ const vocab=[
 {en:"Knowledge",ar:"معرفة",phon:"/ˈnɑː.lɪdʒ/",type:"noun",example:"Knowledge opens doors.",exar:"المعرفة تفتح الأبواب."}
 ];
 let state=load();
+// Accept the language sent by the Blogger site. Apply it before the first render,
+// then remove the one-time parameter so the user's in-app language choice can persist.
+(function applyIncomingLanguage(){
+  try {
+    const params=new URLSearchParams(window.location.search);
+    const incoming=(params.get("lang")||"").toLowerCase();
+    if(incoming==="ar"||incoming==="en"){
+      state.lang=incoming;
+      params.delete("lang");
+      const query=params.toString();
+      history.replaceState(null,"",window.location.pathname+(query?"?"+query:"")+window.location.hash);
+    }
+  } catch(e) {}
+})();
 function load(){try{return {...{lang:"ar",target:"en",level:"A1",xp:0,streak:1,lessons:0,learned:0,correct:0,answered:0,minutes:0,favorites:[],claimed:[],completed:[],highScore:0,sound:true,name:"Explorer",goal:15},...JSON.parse(localStorage.getItem("lingoQuest"))}}catch{return {lang:"ar",target:"en",level:"A1",xp:0,streak:1,lessons:0,learned:0,correct:0,answered:0,minutes:0,favorites:[],claimed:[],completed:[],highScore:0,sound:true,name:"Explorer",goal:15}}}
 function save(){localStorage.setItem("lingoQuest",JSON.stringify(state));$("#xpTop").textContent=state.xp;$("#sideLevel").textContent=level();$("#streakSide").textContent=state.streak}
 function t(k){return dict[state.lang][k]||k}function level(){return Math.floor(state.xp/100)+1}
