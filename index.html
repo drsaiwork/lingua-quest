@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b1b">
+<title>LINGO QUEST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" data-page="home"><span class="brand-mark">LQ</span><span><b>LINGO QUEST</b><small data-i18n="tagline">تعلّم اللغات. عِش المغامرة. اكتشف العالم.</small></span></a>
+    <div class="profile-mini"><div class="avatar">🧑‍🚀</div><div><b id="sideName">مستكشف</b><small><span data-i18n="level">المستوى</span> <span id="sideLevel">1</span></small></div><span class="online-dot"></span></div>
+    <nav id="nav">
+      <button class="nav-item active" data-page="home"><span>⌂</span><i data-i18n="navHome">الرئيسية</i></button>
+      <button class="nav-item" data-page="worlds"><span>🌍</span><i data-i18n="navWorlds">عوالم التعلم</i></button>
+      <button class="nav-item" data-page="games"><span>🎮</span><i data-i18n="navGames">الألعاب</i></button>
+      <button class="nav-item" data-page="dictionary"><span>📚</span><i data-i18n="navDictionary">القاموس الذكي</i></button>
+      <button class="nav-item" data-page="challenges"><span>⚡</span><i data-i18n="navChallenges">التحديات اليومية</i></button>
+      <button class="nav-item" data-page="achievements"><span>🏆</span><i data-i18n="navAchievements">الإنجازات</i></button>
+      <button class="nav-item" data-page="leaderboard"><span>🥇</span><i data-i18n="navLeaderboard">لوحة المتصدرين</i></button>
+      <button class="nav-item" data-page="stats"><span>📈</span><i data-i18n="navStats">إحصائياتي</i></button>
+      <button class="nav-item" data-page="settings"><span>⚙</span><i data-i18n="navSettings">الإعدادات</i></button>
+    </nav>
+    <div class="sidebar-bottom"><div class="streak-card"><span>🔥</span><div><b id="streakSide">1</b><small data-i18n="dayStreak">أيام متتالية</small></div></div><small>LINGO QUEST · v1.0</small></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Menu">☰</button><div class="breadcrumb"><span data-i18n="breadcrumb">مساحة المغامرة</span><b id="pageTitle" data-i18n="navHome">الرئيسية</b></div><div class="top-actions"><span class="pill xp-pill">✦ <b id="xpTop">0</b> XP</span><button class="lang-switch" id="langSwitch">EN</button><button class="icon-btn" id="soundToggle" title="Sound">🔊</button></div></header>
+    <div id="content" class="content"></div>
+  </main>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>
